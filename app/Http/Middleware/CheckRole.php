@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class CheckRole
 {
@@ -14,25 +15,17 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string $role): Response
+    public function handle(Request $request, Closure $next): Response
     {
 
-        //Si el usuario no está autenticado, le reedirige al login
-        if (!$request->user()) {
-            return redirect('login');
-        }
-
-        //Recoge el usuario que ha iniciado sesión
-
-        $user = $request->user();
-
         //Redirección según rol
-        if ($user->role == 'admin') {
-            return redirect('');
-        } else {
-            return redirect('');
-        }
 
-        return $next($request);
+        $user= Auth::user();
+
+        if ($user->role == 'admin') {
+            return redirect('/admin-dashboard');
+        } else {
+            return redirect('/user-dashboard');
+        }
     }
 }
