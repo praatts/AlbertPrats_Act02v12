@@ -14,7 +14,8 @@ Route::get('/admin-dashboard', function () {
 });
 
 Route::get('/user-dashboard', function () {
-    return view('UserView');
+    $users = User::all();
+    return view('UserView', compact('users'));
 });
 
 Route::get('/verificar-rol', function() {

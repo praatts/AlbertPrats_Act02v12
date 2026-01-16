@@ -13,5 +13,6 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->name }}</td>
         </tr>
+        @endforeach
     </tbody>
 </table>
