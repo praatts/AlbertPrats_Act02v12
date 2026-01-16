@@ -23,4 +23,6 @@ Route::get('/verificar-rol', function() {
 
 Route::post('/enviar-formulario', [LoginController::class, 'login']);
 
+Route::post('/register', [App\Http\Controllers\RegisterController::class, 'register']);
+
 
