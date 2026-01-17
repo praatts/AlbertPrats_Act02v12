@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('LoginView');
 });
 
+Route::get('/registro', function (){
+    return view('RegisterView');
+});
+
 Route::get('/admin-dashboard', function () {
     $users = User::all();
     return view('AdminView', compact('users'));

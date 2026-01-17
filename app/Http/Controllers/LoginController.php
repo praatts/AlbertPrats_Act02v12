@@ -8,14 +8,17 @@ use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     public function login(Request $request) {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
+        //Se intenta autenticar la sesión con las credenciales introducidas en el formulario
         if(Auth::attempt($credentials)) {
             $request->session()->regenerate();
     
             return redirect()->route('check.role');
         }
 
-        return back('error', 'Correo electrónico o contraseña incorrectos.');
+        //Redireccionamos a la misma página con error
+
+        return back()->with('error', 'Correo electrónico o contraseña incorrectos.');
     }
 }
