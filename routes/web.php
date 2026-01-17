@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -27,6 +28,8 @@ Route::get('/verificar-rol', function() {
 
 Route::post('/enviar-formulario', [LoginController::class, 'login']);
 
-Route::post('/register', [App\Http\Controllers\RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'register']);
+
+Route::post('/cerrar-sesion', [LoginController::class, 'logout']);
 
 

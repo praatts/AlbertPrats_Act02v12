@@ -21,4 +21,15 @@ class LoginController extends Controller
 
         return back()->with('error', 'Correo electrónico o contraseña incorrectos.');
     }
+
+    //Función para cerrar sesión, invalidar la sesión y redirige al login
+
+    public function logout(Request $request) {
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+    }
 }

@@ -18,3 +18,8 @@
         @endforeach
     </tbody>
 </table>
+
+<form action="/cerrar-sesion" method="post">
+    @csrf
+    <button type="submit">Cerrar sesión</button>
+</form>
