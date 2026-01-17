@@ -20,7 +20,7 @@ class CheckRole
 
         //Redirección según rol
 
-        $user= Auth::user();
+        $user = Auth::user();
 
         if ($user->role === 'admin') {
             return redirect('/admin-dashboard');
