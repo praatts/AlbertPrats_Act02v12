@@ -17,7 +17,7 @@ class RegisterController extends Controller
             'password' => Hash::make($request->input('password')), //Encriptamos contraseña
         ]);
 
-        //Redirección al login
+        //Redirección al login después del registro
         return redirect('/');
     }
 }

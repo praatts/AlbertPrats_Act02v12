@@ -17,7 +17,7 @@ class LoginController extends Controller
             return redirect()->route('check.role');
         }
 
-        //Redireccionamos a la misma página con error
+        //Redireccionamos a la misma página con error en caso de introducir credenciales incorrectas
 
         return back()->with('error', 'Correo electrónico o contraseña incorrectos.');
     }

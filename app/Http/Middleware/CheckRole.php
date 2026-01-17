@@ -17,9 +17,7 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         //Redirección según rol
-
         $user = Auth::user();
 
         if ($user->role === 'admin') {
